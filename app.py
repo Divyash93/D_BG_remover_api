@@ -8,7 +8,13 @@ import os
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": "*",
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 # API Information
 API_NAME = "D_BG_remover"
@@ -129,4 +135,4 @@ def remove_background():
 if __name__ == '__main__':
     print(f"Starting {API_NAME} v{API_VERSION}...")
     port = int(os.getenv('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=os.getenv('FLASK_DEBUG', 'False').lower() == 'true') 
+    app.run(host='0.0.0.0', port=port) 

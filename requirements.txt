@@ -3,4 +3,5 @@ flask-cors==4.0.0
 pillow==10.2.0
 numpy==1.26.4
 rembg==2.0.64
-python-dotenv==1.0.1 
+python-dotenv==1.0.1
+gunicorn==21.2.0 
